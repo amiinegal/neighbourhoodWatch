@@ -5,5 +5,6 @@ from . import views
 
 urlpatterns=[
     url(r'^$', views.home, name='homePage'),
+    url(r'^user/(?P<username>\w+)', views.profile, name='profile')
     
 ]
