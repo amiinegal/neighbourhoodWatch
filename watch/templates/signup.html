@@ -1,0 +1,47 @@
+{%extends 'base.html'%}
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        <div class="col s4 push-s4"><span class="flow-text">
+
+        </span></div>
+
+
+        <div class="col s4 pull-s4">
+            <div class="card">
+                <div style="text-align:center;" class="card-header">
+                    <h5>Sign up </h5>
+                </div>
+                    
+                    <div class="card-body" >
+                            <form method="post" >
+                                    {% csrf_token %}
+                                    {% for field in form %}
+                                    <p>
+                                        {{ field.label_tag }}<br>
+                                        {{ field }}
+                                        {% if field.help_text %}
+                                        <small style="display: none">{{ field.help_text }}</small>
+                                        {% endif %}
+                                        {% for error in field.errors %}
+                                        <p style="color: red">{{ error }}</p>
+                                        {% endfor %}
+                                    </p>
+                                    {% endfor %}
+                                    <button class="waves-effect waves-light btn btn-sm" type="submit">Sign up</button>
+                            </form>
+                    </div>
+                    
+            </div>
+            
+        </div>
+
+
+        <div class="col s4 pull-s4"><span class="flow-text">
+
+        </span></div>
+    </div>
+</div>
+  
+{% endblock %}

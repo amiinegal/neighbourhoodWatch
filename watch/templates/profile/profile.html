@@ -1,0 +1,45 @@
+{%extends "base.html"%}
+{% block content %}
+{% load bootstrap4 %}
+
+<div style="color:rgb(253, 253, 253);" class="container">
+<div class="row">
+  <div class="col-md-5">
+      {% if profile.profile_pic %}
+      <section> <img  data-toggle="modal" data-target="#exampleModalCenter" style="border-radius: 50% ; padding: 0.15rem;  background: linear-gradient(to right bottom, #2cd88888, #2ec96970);" class=" img-circle"
+      src="{{ profile.profile_pic.url}}" alt="" width="250px" height="250px"> {{ photos_item.profile.user.username}}</section> 
+      {% else %}
+      <img  data-toggle="modal" data-target="#exampleModalCenter" style="border-radius: 50% ; padding: 0.15rem;   background: linear-gradient(to right bottom, #2cd88888, #2ec96970);" class=" img-circle"
+      src="https://www.bristolbrewing.com/wp-content/uploads/2017/08/default-avatar.png" alt="" width="250px" height="250px""> {{ photos_item.profile.user.username}}</section>            
+      {% endif %}
+  </div>
+  <div  class="col-md-7">
+      <h4>{{profile.user.username}}</h4>
+      <p>{{profile.bio}}</p>
+      
+      <button class="btn btn-outline-light"> <a class="nav-link" style="color: blue;" href="/edit/profile/"> Edit profile</a></button>
+  </div>
+</div>
+<hr>
+{% if hoods%}
+<h3>My Hoods</h3>
+<div class="row">
+  {% for hoods_items in hoods%}
+      <div class="col-md-4 col-sm-4 col-lg-4 col-xs-4">
+          
+        <img src="{{hoods_items.image.url}}" width="300px" height="250px" alt="">
+        <br>
+      <br>
+      </div>
+      
+  {% endfor%}
+</div>
+  {% else%}
+<h2>No Hoods Created</h2>
+{% endif%}
+  
+   {% block scripts %}
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  {% bootstrap_javascript %} {% endblock %}
+</div>
+{% endblock %}

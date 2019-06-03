@@ -1,0 +1,43 @@
+<nav style="background-color: whitesmoke" class="sticky-top navbar navbar-expand-lg navbar-light ">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <a class="navbar-brand" href="/"> <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQWMOzcU346kIt74AqxIe-v6dQv57acm9fD4CM0Ier-RjSHC_HROg" alt="" height="50px width =50px"> </a>
+  
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+      <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+      </ul>
+      {% if user.is_authenticated %}
+      {% if request.user.profile.profile_pic %}
+      <section> <img style="border-radius: 50% ; padding: 0.15rem;   background: linear-gradient(to right bottom, #2cd8a4, #2ec97b);" class=" img-circle"
+      src="{{request.user.profile.profile_pic.url}}" alt="" width="70px" height="70px">  </section> <br>
+  {% else %}
+      <img style="border-radius: 50% ; padding: 0.15rem;  background: linear-gradient(to right bottom, #2cd88888, #2ec96970);" class=" img-circle"
+      src="https://www.bristolbrewing.com/wp-content/uploads/2017/08/default-avatar.png" alt="" width="70px" height="70px"> </section> <br>
+      
+      {% endif %}
+          
+      <h4 style="color:gold;" class="nav-item dropdown">
+          <a style="color:gold;" class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <span>{{ user.username}}</span>
+              
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" href="/profile/">Profile</a>
+            <a class="dropdown-item" href="/accounts/password/change">Change password</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="/logout">Log out</a>
+          </div>
+        </h4>
+  
+
+  
+      <form role="search" action="{% url 'search_results' %}" class="form-inline my-2 my-lg-0">
+          <input type="search" name="business" placeholder="Search">
+      </form>
+      {% else%}
+      <a href="/accounts/login"> <button id="but"  class="btn btn-danger">Log in</button> </a>
+
+      {% endif%}
+    </div>
+  </nav>

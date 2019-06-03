@@ -1,0 +1,47 @@
+{% load static%}
+{% load bootstrap4%}
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <link rel="shortcut icon"  href="https://www.shareicon.net/data/256x256/2016/01/04/231545_home_256x256.png"/>
+
+  
+  <link href="https://fonts.googleapis.com/css?family=Mali" rel="stylesheet">
+      
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+
+  {% if title %}
+  <title>Neighbourhood Watch - {{title}}</title>
+  {% else %}
+    <title> Neighbourhood Watch </title>
+  {% endif %}
+  {% block styles %}
+    {% bootstrap_css %}
+  {% endblock %}
+   
+
+</head>
+<body style="background-color:rgba(0, 0, 0, 0.932);">
+    {% include "navbar.html" %}
+
+    {% block content %}  {%endblock%}
+
+   
+    {% block scripts %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+ {% bootstrap_javascript %}
+
+ <script>
+    $(document).ready(function(){
+        $("#but").click(function(){
+            $("#but").toggle(100);
+        });
+    });
+    </script>
+{% endblock %}
+
+</body>
