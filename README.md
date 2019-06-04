@@ -17,10 +17,10 @@ _amin egal_
 ### BDD
 | Behavior  |Input   | Output  |
 |:-:|---|---|
-|  |  |    |
-|  |   |   |
-|   |   |   |
-|   |  |  |
+| login form | redirected to registration form | can view home page   |
+| profile |add profile pic and bio   | profile pic posted  |
+| asks to create hood  | fill in details about your hood  |  hood is displayed |
+|  asks to join | describe your hood | allowed to join |
 
 ### Technologies Used
 * CSS.
