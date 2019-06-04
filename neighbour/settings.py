@@ -46,7 +46,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'watch',
     'bootstrap4',
-    'tinymce',
+    'tinymce'
 ]
 
 MIDDLEWARE = [
